@@ -30,7 +30,9 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # .env
-#ORIGINAL DEBUG = config('DEBUG', default=True, cast=bool)  # True
+#ORIGINAL 
+DEBUG = config('DEBUG', default=True, cast=bool)  # True
+#
 DEBUG = config('DEBUG', cast=bool)
 
 #FOR aws
