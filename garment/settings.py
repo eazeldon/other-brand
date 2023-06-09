@@ -52,8 +52,7 @@ INSTALLED_APPS = [
     'store',
     'carts',
     'orders',
-    #'admin_honeypot',
-    #'storages',
+  
 ]
 
 MIDDLEWARE = [
