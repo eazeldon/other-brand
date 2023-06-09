@@ -6,6 +6,7 @@ chardet==4.0.0
 Django==3.1
 
 django-admin-thumbnails==0.2.5
+django-session-timeout==0.1.0
 
 idna==2.10
 jmespath==0.10.0

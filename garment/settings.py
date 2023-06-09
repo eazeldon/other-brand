@@ -33,8 +33,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool)  # True
 
 #FOR aws
-#ALLOWED_HOSTS = [
-#    'brand-env.eba-bepcfz6j.us-west-2.elasticbeanstalk.com', '*', 'brandshop.se']
+#ALLOWED_HOSTS = []
+#    'brand-env.eba-bepcfz6j.us-west-2.elasticbeanstalk.com', '*', 'brandshop.se'
+
 
 ALLOWED_HOSTS = []
 
