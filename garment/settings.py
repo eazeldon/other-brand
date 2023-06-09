@@ -14,7 +14,7 @@ from django.contrib.messages import constants as messages
 from pathlib import Path
 # sect25-len117
 from decouple import config
-#import os
+import os
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
