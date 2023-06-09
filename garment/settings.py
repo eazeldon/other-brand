@@ -32,8 +32,7 @@ SECRET_KEY = config('SECRET_KEY')
 # .env
 #ORIGINAL 
 DEBUG = config('DEBUG', default=True, cast=bool)  # True
-#
-DEBUG = config('DEBUG', cast=bool)
+#DEBUG = config('DEBUG', cast=bool)
 
 #FOR aws
 #ALLOWED_HOSTS = []
