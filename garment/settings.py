@@ -40,16 +40,17 @@ DEBUG = config('DEBUG', default=True, cast=bool)  # True
 
 
 ALLOWED_HOSTS = ['other-brand.onrender.com', 'localhost', '127.0.0.1']
-
+#ALLOWED_HOSTS = []
 
 # Application definition
-
+#-ADD whitenoise
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'category',
     'accounts',
@@ -59,8 +60,10 @@ INSTALLED_APPS = [
   
 ]
 
+#ADD whitenoise
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -68,8 +71,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
-    #NEW
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+    
+    
 ]
 
 # -sect15-len-119 SESSION_EXPIRE,SESSION_TIMEOUT
@@ -149,21 +152,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-#NEW
+#ADD STATICFILES_STORAGE
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 STATIC_URL = '/static/'
 
-#NEW
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
-
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-   'garment/static'
-  
+   'garment/static',
 ]
 
 # --media file configuration --upload image in the admin
