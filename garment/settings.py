@@ -63,7 +63,7 @@ INSTALLED_APPS = [
 #ADD whitenoise
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -155,12 +155,25 @@ USE_TZ = True
 #ADD STATICFILES_STORAGE
 #STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
+#STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
    'garment/static',
 ]
+#___________ADD
+
+
+
+STATIC_URL = '/static/'
+# Following settings only make sense on production and may break development environments.
+if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
+  
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles','static')
+   
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 
 # --media file configuration --upload image in the admin
 # --go to web-garment root folder url py setup the path
