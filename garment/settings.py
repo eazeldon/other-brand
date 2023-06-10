@@ -68,6 +68,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
+    #NEW
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
 # -sect15-len-119 SESSION_EXPIRE,SESSION_TIMEOUT
@@ -157,11 +159,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
-   'garment/static',
-   ##NEW
-   'whitenoise.storage.CompressedManifestStaticFilesStorage'
+   'garment/static'
+  
 ]
-
+#NEW
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # --media file configuration --upload image in the admin
 # --go to web-garment root folder url py setup the path
