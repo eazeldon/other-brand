@@ -16,8 +16,8 @@ from pathlib import Path
 from decouple import config
 import os
 #ADD
-import texttypes
-texttypes.add_type('text/javascript', '.js', True)
+import minetypes
+minetypes.add_type('text/javascript', '.js', True)
 
 
 
