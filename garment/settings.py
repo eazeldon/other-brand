@@ -118,7 +118,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
-        'default':  dj_database_url.parse(env('DATABASE_URL')),
+        'default':  dj_database_url.parse(env('DATABASE_URL'))
           
     }
 else:
