@@ -118,14 +118,15 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
-        'default': {'default': dj_database_url.parse(env('DATABASE_URL')),
+        'default':  dj_database_url.parse(env('DATABASE_URL')),
+          
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ['RDS_DB_NAME'],
             'USER': os.environ['RDS_USERNAME'],
             'PASSWORD': os.environ['RDS_PASSWORD'],
             'HOST': os.environ['RDS_HOSTNAME'],
             'PORT': os.environ['RDS_PORT'],
-        }
+          
     }
 else:
     DATABASES = {
