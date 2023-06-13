@@ -116,7 +116,7 @@ WSGI_APPLICATION = 'garment.wsgi.application'
 # from accounts models py
 AUTH_USER_MODEL = 'accounts.Account'
 
-if 'RDS_DB_NAME' in os.environ:
+if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default':  dj_database_url.parse(env('DATABASE_URL'))
           
