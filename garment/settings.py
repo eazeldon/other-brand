@@ -107,7 +107,6 @@ WSGI_APPLICATION = 'garment.wsgi.application'
 # from accounts models py
 AUTH_USER_MODEL = 'accounts.Account'
 
- 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
         'default': {
@@ -126,6 +125,9 @@ else:
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
+
+ 
+
 
 
 
@@ -197,6 +199,8 @@ EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
+DATABASE_URL=config('DATABASE_URL')
 
 #NEW-> to remove the WARNING in the terminal
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
