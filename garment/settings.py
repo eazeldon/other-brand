@@ -16,10 +16,19 @@ from pathlib import Path
 from decouple import config
 import os
 
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+
+#NEW Render
+
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -109,7 +118,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 if 'RDS_DB_NAME' in os.environ:
     DATABASES = {
-        'default': {
+        'default': {'default': dj_database_url.parse(env('DATABASE_URL')),
             'ENGINE': 'django.db.backends.postgresql',
             'NAME': os.environ['RDS_DB_NAME'],
             'USER': os.environ['RDS_USERNAME'],
